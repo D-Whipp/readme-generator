@@ -1,14 +1,22 @@
 {
   "name": "static-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "A professional readme generator using node.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "David Whipple",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.3.1"
-  }
+    "inquirer": "^6.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D-Whipp/readme-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/D-Whipp/readme-generator/issues"
+  },
+  "homepage": "https://github.com/D-Whipp/readme-generator#readme"
 }
