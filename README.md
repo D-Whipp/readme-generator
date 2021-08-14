@@ -16,7 +16,7 @@
       
 
       
-<img src="na" alt="Project screenshot" />
+<img src="./assets/images/screenShot.png" alt="Project screenshot" />
       
 
       
@@ -24,7 +24,7 @@
       
 
       
-This project uses JavaScript, Inquirer, and FS to build a custom Readme for my projects
+Uses JavaScript, Inquirer, and FS to build a custom Readme for Coding Projects
       
 
       
@@ -50,7 +50,7 @@ This project uses JavaScript, Inquirer, and FS to build a custom Readme for my p
       
 
       
-Clone source code into your favorite Editor
+Clone source code
       
 
       
@@ -58,7 +58,7 @@ Clone source code into your favorite Editor
       
 
       
-From the Root Directory open the Command Line and type node index and answer the questions
+Using your favorite IDE open the root directory. Once there open the terminal and type node index then answer the following questions
       
 
       
@@ -84,7 +84,7 @@ MIT
       
 ## Features
       
-Builds custom Readme for Projects
+Builds a custom Readme for your projects
       
 
       
