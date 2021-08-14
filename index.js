@@ -289,6 +289,11 @@ inquirer
       \r\n## Credits
       \r\n
       \r\n${data.credits}
+      \r\n
+      \r\n
+      \r\n
+      \r\n
+      \r\n©${new Date().getFullYear()}. All Rights Reserved.
     `;
 
     fs.writeFile("ReadMe.md", mdData, (error) => {

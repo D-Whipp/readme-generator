@@ -4,7 +4,7 @@
       
 
       
-## By: Davidi
+## By: David Whipple
       
 
       
@@ -24,7 +24,7 @@
       
 
       
-Basic description
+Basic Description
       
 
       
@@ -44,7 +44,7 @@ Basic description
       
 
       
-Download source code
+Download Source Code
       
 
       
@@ -52,7 +52,7 @@ Download source code
       
 
       
-use node index
+use the command line
       
 
       
@@ -60,5 +60,15 @@ use node index
       
 
       
-CJ
+CD
+      
+
+      
+
+      
+
+      
+
+      
+©2021. All Rights Reserved.
     
