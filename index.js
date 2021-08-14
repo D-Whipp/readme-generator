@@ -1,11 +1,8 @@
-// TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown.js");
 
-// TODO: Create an array of questions for user input
-const promptQuestions = () => {
-  return inquirer.prompt([
+inquirer
+  .prompt([
     {
       type: "input",
       name: "name",
@@ -14,7 +11,7 @@ const promptQuestions = () => {
         if (nameInput) {
           return true;
         } else {
-          console.log("Please enter your name!");
+          console.log("Enter your name!");
           return false;
         }
       },
@@ -27,7 +24,7 @@ const promptQuestions = () => {
         if (githubInput) {
           return true;
         } else {
-          console.log("Please enter your GitHub Username!");
+          console.log("Enter your GitHub Username!");
           return false;
         }
       },
@@ -40,7 +37,20 @@ const promptQuestions = () => {
         if (titleInput) {
           return true;
         } else {
-          console.log("Please enter your Project Title!");
+          console.log("Enter your Project Title!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "image",
+      message: "Enter the URL to your Project Screenshot: (Required)",
+      validate: (imageInput) => {
+        if (imageInput) {
+          return true;
+        } else {
+          console.log("Enter your Project Screenshot URL!");
           return false;
         }
       },
@@ -48,25 +58,94 @@ const promptQuestions = () => {
     {
       type: "input",
       name: "description",
-      message: "Enter a description: (Required)",
+      message: "Enter your projects description: (Required)",
       validate: (descriptionInput) => {
         if (descriptionInput) {
           return true;
         } else {
-          console.log("Please enter your Project's Description!");
+          console.log("Enter your project's description!");
+          return false;
+        }
+      },
+    },
+    // {
+    //   type: "list",
+    //   name: "tableOfContents",
+    //   message: "Do you wish to include a table of contents",
+    //   choices: ["Yes", "No"],
+    //   validate: (tableOfContents) => {
+    //     if (tableOfContents.value === "Yes") {
+    //       console.log("Great");
+    //     }
+    //   },
+    // },
+    // Table of Contents START
+    {
+      type: "input",
+      name: "tocInstall",
+      message:
+        "Enter 'Installation' to add Installation to your Table of Contents: (Required)",
+      validate: (tocInstallInput) => {
+        if (tocInstallInput) {
+          return true;
+        } else {
+          console.log("Type 'Installation' for your Table of Contents!");
           return false;
         }
       },
     },
     {
       type: "input",
-      name: "installation",
-      message: "How is your project installed? (Required)",
+      name: "tocUsage",
+      message:
+        "Enter 'Usage' to add Usage to your Table of Contents: (Required)",
+      validate: (tocUsageInput) => {
+        if (tocUsageInput) {
+          return true;
+        } else {
+          console.log("Enter 'Usage' for your Table of Contents!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "tocCredit",
+      message:
+        "Enter 'Credits' to add Credits to your Table of Contents: (Required)",
+      validate: (tocCreditInput) => {
+        if (tocCreditInput) {
+          return true;
+        } else {
+          console.log("Enter Credits!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "tocLicense",
+      message:
+        "Enter 'License' to add License to your Table of Contents: (Required)",
+      validate: (tocLicenseInput) => {
+        if (tocLicenseInput) {
+          return true;
+        } else {
+          console.log("Enter License!");
+          return false;
+        }
+      },
+    },
+    // Table of Contents END
+    {
+      type: "input",
+      name: "install",
+      message: "Provide installation direction:",
       validate: (installInput) => {
         if (installInput) {
           return true;
         } else {
-          console.log("Please explain how your project is installed!");
+          console.log("Provide installation directions!");
           return false;
         }
       },
@@ -74,74 +153,165 @@ const promptQuestions = () => {
     {
       type: "input",
       name: "usage",
-      message: "How is your project used? (Required)",
+      message: "Provide instructions/examples here:",
       validate: (usageInput) => {
         if (usageInput) {
           return true;
         } else {
-          console.log("Explain how your project is used: (Required)");
+          console.log("Provide instructions/examples here!");
           return false;
         }
       },
     },
     {
-      type: "confirm",
-      name: "confirmCredits",
-      message: "Are there Credits you'd like to include?",
-      default: true,
-    },
-    {
       type: "input",
       name: "credits",
-      message: "Include credits here:",
-      when: ({ confirmCredits }) => confirmCredits,
-    },
-    {
-      type: "confirm",
-      name: "confirmLicense",
-      message: "Would you like to include a license?",
-      default: false,
+      message: "Provide additional Credits here:",
+      validate: (creditsInput) => {
+        if (creditsInput) {
+          return true;
+        } else {
+          console.log("Provide Cedits here!");
+          return false;
+        }
+      },
     },
     {
       type: "input",
       name: "license",
-      message: "Include license(s) here:",
-      when: ({ confirmLicense }) => confirmLicense,
+      message: "Provide license here:",
+      validate: (licenseInput) => {
+        if (licenseInput) {
+          return true;
+        } else {
+          console.log("Provide License here!");
+          return false;
+        }
+      },
     },
-    {
-      type: "confirm",
-      name: "confirmBadge",
-      message: "Would you like to include a badge?",
-      default: false,
-    },
-    {
-      type: "input",
-      name: "badge",
-      message: "Include badge(s) here:",
-      when: ({ confirmBadge }) => confirmBadge,
-    },
-  ]);
-};
+    // {
+    //   type: "confirm",
+    //   name: "confirmBadge",
+    //   message: "Do you wish to include a badge?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "badge",
+    //   message: "Provide badge here:",
+    //   when: ({ confirmBadge }) => {
+    //     if (confirmBadge) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmFeatures",
+    //   message:
+    //     "Does your project have any special features you'd like to include?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "feature",
+    //   message: "Provide feature(s) here:",
+    //   when: ({ confirmFeature }) => {
+    //     if (confirmFeature) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmContribute",
+    //   message: "Does your project require further contribution?",
+    //   default: false,
+    // },
+    // {
+    //   type: "input",
+    //   name: "contribute",
+    //   message: "Provide details on how to contribute to your project here:",
+    //   when: ({ confrimContribute }) => {
+    //     if (confrimContribute) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmTest",
+    //   message: "Do you want to include tests?",
+    //   default: false,
+    // },
+    // {
+    //   type: "input",
+    //   name: "test",
+    //   message: "Include your application tests here:",
+    //   when: ({ confirmTest }) => {
+    //     if (confirmTest) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+  ])
+  .then(function (data) {
+    console.log(data);
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  return new Promise((resolve, reject) => {
-    fs.writeFile("./dist/readme.md", fileName, data, (err) => {
-      if (err) {
-        reject(err);
-        return;
+    const mdData = `
+      \r\n# ${data.title}
+      \r\n
+      \r\n## By: ${data.name}
+      \r\n
+      \r\n## GitHub Username: ${data.github}
+      \r\n
+      \r\n## Screenshot
+      \r\n
+      \r\n<img src="${data.image}" alt="Project screenshot" />
+      \r\n
+      \r\n## Description
+      \r\n
+      \r\n${data.description}
+      \r\n
+      \r\n## Table of Contents
+      \r\n
+      \r\n[${data.tocInstall}](#installation)
+      \r\n[${data.tocUsage}](#usage)
+      \r\n[${data.tocCredit}](#credits)
+      \r\n[${data.tocLicense}](#license)
+      \r\n
+      \r\n## Installation
+      \r\n
+      \r\n${data.install}
+      \r\n
+      \r\n## Usage
+      \r\n
+      \r\n${data.usage}
+      \r\n
+      \r\n## Credits
+      \r\n
+      \r\n${data.credits}
+      \r\n
+      \r\n## License
+      \r\n${data.license}
+      \r\n
+      \r\n
+      \r\n©${new Date().getFullYear()}. All Rights Reserved.
+    `;
+
+    fs.writeFile("ReadMe.md", mdData, (error) => {
+      if (error) {
+        console.log("Error: ", error);
+      } else {
+        console.log("Readme created successfully!");
       }
-
-      resolve({
-        ok: true,
-        message: "File created!",
-      });
     });
   });
-}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
