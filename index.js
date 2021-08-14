@@ -136,6 +136,34 @@ inquirer
         }
       },
     },
+    {
+      type: "input",
+      name: "tocBadge",
+      message:
+        "Enter 'Badge' to add Badge to your Table of Contents: (Required)",
+      validate: (tocBadge) => {
+        if (tocBadge) {
+          return true;
+        } else {
+          console.log("Enter Badge!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "tocFeature",
+      message:
+        "Enter 'Features' to add Features to your Table of Contents: (Required)",
+      validate: (tocFeature) => {
+        if (tocFeature) {
+          return true;
+        } else {
+          console.log("Enter Features!");
+          return false;
+        }
+      },
+    },
     // Table of Contents END
     {
       type: "input",
@@ -189,43 +217,32 @@ inquirer
         }
       },
     },
-    // {
-    //   type: "confirm",
-    //   name: "confirmBadge",
-    //   message: "Do you wish to include a badge?",
-    //   default: true,
-    // },
-    // {
-    //   type: "input",
-    //   name: "badge",
-    //   message: "Provide badge here:",
-    //   when: ({ confirmBadge }) => {
-    //     if (confirmBadge) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    // },
-    // {
-    //   type: "confirm",
-    //   name: "confirmFeatures",
-    //   message:
-    //     "Does your project have any special features you'd like to include?",
-    //   default: true,
-    // },
-    // {
-    //   type: "input",
-    //   name: "feature",
-    //   message: "Provide feature(s) here:",
-    //   when: ({ confirmFeature }) => {
-    //     if (confirmFeature) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    // },
+    {
+      type: "input",
+      name: "badge",
+      message: "Provide badge here:",
+      validate: (badgeInput) => {
+        if (badgeInput) {
+          return true;
+        } else {
+          console.log("Provide your Badge link here!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "feature",
+      message: "Provide feature(s) here:",
+      validate: (featureInput) => {
+        if (featureInput) {
+          return true;
+        } else {
+          console.log("Provide features about your project!");
+          return false;
+        }
+      },
+    },
     // {
     //   type: "confirm",
     //   name: "confirmContribute",
@@ -287,6 +304,8 @@ inquirer
       \r\n[${data.tocUsage}](#usage)
       \r\n[${data.tocCredit}](#credits)
       \r\n[${data.tocLicense}](#license)
+      \r\n[${data.tocBadge}](#badge)
+      \r\n[${data.tocFeature}](#features)
       \r\n
       \r\n## Installation
       \r\n
@@ -303,6 +322,11 @@ inquirer
       \r\n## License
       \r\n${data.license}
       \r\n
+      \r\n## Badge
+      \r\n${data.badge}
+      \r\n
+      \r\n## Features
+      \r\n${data.feature}
       \r\n
       \r\n©${new Date().getFullYear()}. All Rights Reserved.
     `;

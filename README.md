@@ -1,10 +1,10 @@
 
       
-# Readme Generator
+# Readme Gen
       
 
       
-## By: David Whipple
+## By: David
       
 
       
@@ -24,7 +24,7 @@
       
 
       
-Basic description
+desc
       
 
       
@@ -40,13 +40,17 @@ Basic description
       
 [License](#license)
       
+[Badge](#badge)
+      
+[Features](#features)
+      
 
       
 ## Installation
       
 
       
-Download source code and open with Editor
+download source code
       
 
       
@@ -54,7 +58,7 @@ Download source code and open with Editor
       
 
       
-Using your Editors command line: type node index and answer the prompts
+use node index and answer prompts
       
 
       
@@ -71,6 +75,16 @@ CJ
 MIT
       
 
+      
+## Badge
+      
+![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+      
+
+      
+## Features
+      
+Builds custom Readme for your project
       
 
       
