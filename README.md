@@ -1,10 +1,10 @@
 
       
-# Readme Gen
+# Readme Generator
       
 
       
-## By: David
+## By: David Whipple
       
 
       
@@ -24,7 +24,7 @@
       
 
       
-desc
+Desc
       
 
       
@@ -50,7 +50,7 @@ desc
       
 
       
-download source code
+Clone source code
       
 
       
@@ -58,7 +58,7 @@ download source code
       
 
       
-use node index and answer prompts
+use node index and answer the prompts
       
 
       
@@ -66,7 +66,7 @@ use node index and answer prompts
       
 
       
-CJ
+N/A
       
 
       
@@ -84,7 +84,13 @@ MIT
       
 ## Features
       
-Builds custom Readme for your project
+Builds a custom Readme.md for your project
+      
+
+      
+## Contribute
+      
+N/A
       
 
       

@@ -168,7 +168,7 @@ inquirer
     {
       type: "input",
       name: "install",
-      message: "Provide installation direction:",
+      message: "Provide installation direction: (Required)",
       validate: (installInput) => {
         if (installInput) {
           return true;
@@ -181,7 +181,7 @@ inquirer
     {
       type: "input",
       name: "usage",
-      message: "Provide instructions/examples here:",
+      message: "Provide instructions/examples here: (Required)",
       validate: (usageInput) => {
         if (usageInput) {
           return true;
@@ -194,7 +194,7 @@ inquirer
     {
       type: "input",
       name: "credits",
-      message: "Provide additional Credits here:",
+      message: "Provide additional Credits here: (Required)",
       validate: (creditsInput) => {
         if (creditsInput) {
           return true;
@@ -207,7 +207,7 @@ inquirer
     {
       type: "input",
       name: "license",
-      message: "Provide license here:",
+      message: "Provide license here: (Required)",
       validate: (licenseInput) => {
         if (licenseInput) {
           return true;
@@ -220,7 +220,7 @@ inquirer
     {
       type: "input",
       name: "badge",
-      message: "Provide badge here:",
+      message: "Provide badge here: (Required)",
       validate: (badgeInput) => {
         if (badgeInput) {
           return true;
@@ -233,7 +233,7 @@ inquirer
     {
       type: "input",
       name: "feature",
-      message: "Provide feature(s) here:",
+      message: "Provide feature(s) here: (Required)",
       validate: (featureInput) => {
         if (featureInput) {
           return true;
@@ -243,24 +243,22 @@ inquirer
         }
       },
     },
-    // {
-    //   type: "confirm",
-    //   name: "confirmContribute",
-    //   message: "Does your project require further contribution?",
-    //   default: false,
-    // },
-    // {
-    //   type: "input",
-    //   name: "contribute",
-    //   message: "Provide details on how to contribute to your project here:",
-    //   when: ({ confrimContribute }) => {
-    //     if (confrimContribute) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    // },
+    {
+      type: "input",
+      name: "contribute",
+      message:
+        "Provide details on how to contribute to your project here: (Required)",
+      validate: (contributeInput) => {
+        if (contributeInput) {
+          return true;
+        } else {
+          console.log(
+            "Tell people how to contribute to your project or enter N/A!"
+          );
+          return false;
+        }
+      },
+    },
     // {
     //   type: "confirm",
     //   name: "confirmTest",
@@ -327,6 +325,9 @@ inquirer
       \r\n
       \r\n## Features
       \r\n${data.feature}
+      \r\n
+      \r\n## Contribute
+      \r\n${data.contribute}
       \r\n
       \r\n©${new Date().getFullYear()}. All Rights Reserved.
     `;
