@@ -68,35 +68,35 @@ inquirer
         }
       },
     },
-    {
-      type: "list",
-      name: "tableOfContents",
-      message: "Do you wish to include a table of contents",
-      choices: ["Yes", "No"],
-      validate: (tableOfContents) => {
-        if (tableOfContents.value === "Yes") {
-          console.log("Great");
-        }
-      },
-    },
     // {
-    //   type: "confirm",
-    //   name: "confirmInstall",
-    //   message: "Does your project require installation?",
-    //   default: true,
-    // },
-    // {
-    //   type: "input",
-    //   name: "install",
-    //   message: "Provide installation direction:",
-    //   when: ({ confirmInstall }) => {
-    //     if (confirmInstall) {
-    //       return true;
-    //     } else {
-    //       return false;
+    //   type: "list",
+    //   name: "tableOfContents",
+    //   message: "Do you wish to include a table of contents",
+    //   choices: ["Yes", "No"],
+    //   validate: (tableOfContents) => {
+    //     if (tableOfContents.value === "Yes") {
+    //       console.log("Great");
     //     }
     //   },
     // },
+    {
+      type: "confirm",
+      name: "confirmInstall",
+      message: "Does your project require installation?",
+      default: true,
+    },
+    {
+      type: "input",
+      name: "install",
+      message: "Provide installation direction:",
+      when: ({ confirmInstall }) => {
+        if (confirmInstall) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    },
     // {
     //   type: "confirm",
     //   name: "confirmUsage",
@@ -229,11 +229,11 @@ inquirer
     console.log(data);
 
     const mdData = `
-      \r\n# ${data.name}
+      \r\n# ${data.title}
       \r\n
-      \r\n## ${data.github}
+      \r\n## By: ${data.name}
       \r\n
-      \r\n## ${data.title}
+      \r\n## GitHub Username: ${data.github}
       \r\n
       \r\n## Screenshot
       \r\n
@@ -241,8 +241,8 @@ inquirer
       \r\n
       \r\n## Description
       \r\n${data.description}
-      \r\n## Installation
       \r\n
+      \r\n## Installation
       \r\n${data.install}
     `;
 

@@ -1,14 +1,14 @@
 
       
-# David Whipple
+# Readme Generator
       
 
       
-## D-Whipp
+## By: David Whipple
       
 
       
-## Readme Generator
+## GitHub Username: D-Whipp
       
 
       
@@ -22,11 +22,11 @@
       
 ## Description
       
-This is a basic project description
-      
-## Installation
+This is a basic description
       
 
       
-undefined
+## Installation
+      
+You must download the source code to use this app
     
