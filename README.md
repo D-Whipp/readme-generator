@@ -24,7 +24,7 @@
       
 
       
-Uses JavaScript, Inquirer, and FS to build a custom Readme for Coding Projects
+Using JavaScript, Inquirer, and FS this code creates a Readme for Your coding Projects
       
 
       
@@ -58,7 +58,7 @@ Clone source code
       
 
       
-Using your favorite IDE open the root directory. Once there open the terminal and type node index then answer the following questions
+Use your favorite IDE to open the root directory, in the terminal type node index and you answer the prompts
       
 
       
@@ -84,7 +84,7 @@ MIT
       
 ## Features
       
-Builds a custom Readme for your projects
+Builds a Readme for your Coding Projects
       
 
       

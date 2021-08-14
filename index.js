@@ -68,18 +68,6 @@ inquirer
         }
       },
     },
-    // {
-    //   type: "list",
-    //   name: "tableOfContents",
-    //   message: "Do you wish to include a table of contents",
-    //   choices: ["Yes", "No"],
-    //   validate: (tableOfContents) => {
-    //     if (tableOfContents.value === "Yes") {
-    //       console.log("Great");
-    //     }
-    //   },
-    // },
-    // Table of Contents START
     {
       type: "input",
       name: "tocInstall",
