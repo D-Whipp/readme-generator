@@ -1,8 +1,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-const promptUser = () => {
-  return inquirer.prompt([
+inquirer
+  .prompt([
     {
       type: "input",
       name: "name",
@@ -69,149 +69,188 @@ const promptUser = () => {
       },
     },
     {
-      type: "confirm",
-      name: "confirmInstall",
-      message: "Does your project require installation?",
-      default: true,
-    },
-    {
-      type: "input",
-      name: "install",
-      message: "Provide installation direction:",
-      when: ({ confirmInstall }) => {
-        if (confirmInstall) {
-          return true;
-        } else {
-          return false;
+      type: "list",
+      name: "tableOfContents",
+      message: "Do you wish to include a table of contents",
+      choices: ["Yes", "No"],
+      validate: (tableOfContents) => {
+        if (tableOfContents.value === "Yes") {
+          console.log("Great");
         }
       },
     },
-    {
-      type: "confirm",
-      name: "confirmUsage",
-      message: "Does your project need instructions/examples of use?",
-      default: true,
-    },
-    {
-      type: "input",
-      name: "usage",
-      message: "Provide instructions/examples here:",
-      when: ({ confirmUsage }) => {
-        if (confirmUsage) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    },
-    {
-      type: "confirm",
-      name: "confirmCredits",
-      message: "Does your project need a list of any additional credits?",
-      default: true,
-    },
-    {
-      type: "input",
-      name: "credits",
-      message: "Provide additional Credits here:",
-      when: ({ confirmCredits }) => {
-        if (confirmCredits) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    },
-    {
-      type: "confirm",
-      name: "confirmLicense",
-      message: "Do you wish to include a license?",
-      default: true,
-    },
-    {
-      type: "input",
-      name: "license",
-      message: "Provide license here:",
-      when: ({ confirmLicense }) => {
-        if (confirmLicense) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    },
-    {
-      type: "confirm",
-      name: "confirmBadge",
-      message: "Do you wish to include a badge?",
-      default: true,
-    },
-    {
-      type: "input",
-      name: "badge",
-      message: "Provide badge here:",
-      when: ({ confirmBadge }) => {
-        if (confirmBadge) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    },
-    {
-      type: "confirm",
-      name: "confirmFeatures",
-      message:
-        "Does your project have any special features you'd like to include?",
-      default: true,
-    },
-    {
-      type: "input",
-      name: "feature",
-      message: "Provide feature(s) here:",
-      when: ({ confirmFeature }) => {
-        if (confirmFeature) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    },
-    {
-      type: "confirm",
-      name: "confirmContribute",
-      message: "Does your project require further contribution?",
-      default: false,
-    },
-    {
-      type: "input",
-      name: "contribute",
-      message: "Provide details on how to contribute to your project here:",
-      when: ({ confrimContribute }) => {
-        if (confrimContribute) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    },
-    {
-      type: "confirm",
-      name: "confirmTest",
-      message: "Do you want to include tests?",
-      default: false,
-    },
-    {
-      type: "input",
-      name: "test",
-      message: "Include your application tests here:",
-      when: ({ confirmTest }) => {
-        if (confirmTest) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    },
-  ]);
-};
+    // {
+    //   type: "confirm",
+    //   name: "confirmInstall",
+    //   message: "Does your project require installation?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "install",
+    //   message: "Provide installation direction:",
+    //   when: ({ confirmInstall }) => {
+    //     if (confirmInstall) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmUsage",
+    //   message: "Does your project need instructions/examples of use?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "usage",
+    //   message: "Provide instructions/examples here:",
+    //   when: ({ confirmUsage }) => {
+    //     if (confirmUsage) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmCredits",
+    //   message: "Does your project need a list of any additional credits?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "credits",
+    //   message: "Provide additional Credits here:",
+    //   when: ({ confirmCredits }) => {
+    //     if (confirmCredits) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmLicense",
+    //   message: "Do you wish to include a license?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "license",
+    //   message: "Provide license here:",
+    //   when: ({ confirmLicense }) => {
+    //     if (confirmLicense) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmBadge",
+    //   message: "Do you wish to include a badge?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "badge",
+    //   message: "Provide badge here:",
+    //   when: ({ confirmBadge }) => {
+    //     if (confirmBadge) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmFeatures",
+    //   message:
+    //     "Does your project have any special features you'd like to include?",
+    //   default: true,
+    // },
+    // {
+    //   type: "input",
+    //   name: "feature",
+    //   message: "Provide feature(s) here:",
+    //   when: ({ confirmFeature }) => {
+    //     if (confirmFeature) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmContribute",
+    //   message: "Does your project require further contribution?",
+    //   default: false,
+    // },
+    // {
+    //   type: "input",
+    //   name: "contribute",
+    //   message: "Provide details on how to contribute to your project here:",
+    //   when: ({ confrimContribute }) => {
+    //     if (confrimContribute) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+    // {
+    //   type: "confirm",
+    //   name: "confirmTest",
+    //   message: "Do you want to include tests?",
+    //   default: false,
+    // },
+    // {
+    //   type: "input",
+    //   name: "test",
+    //   message: "Include your application tests here:",
+    //   when: ({ confirmTest }) => {
+    //     if (confirmTest) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    // },
+  ])
+  .then(function (data) {
+    console.log(data);
+
+    const mdData = `
+      \r\n# ${data.name}
+      \r\n
+      \r\n## ${data.github}
+      \r\n
+      \r\n## ${data.title}
+      \r\n
+      \r\n## Screenshot
+      \r\n
+      \r\n<img src="${data.image}" alt="Project screenshot" />
+      \r\n
+      \r\n## Description
+      \r\n${data.description}
+      \r\n## Installation
+      \r\n
+      \r\n${data.install}
+    `;
+
+    fs.writeFile("ReadMe.md", mdData, (error) => {
+      if (error) {
+        console.log("Error: ", error);
+      } else {
+        console.log("Readme created successfully!");
+      }
+    });
+  });

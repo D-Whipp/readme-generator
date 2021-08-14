@@ -1,9 +1,6 @@
 const generateTitle = (titleText) => {
   if (!titleText) {
-    return "";
+    const projectTitle = "# " + `${titleText}`;
+    return projectTitle;
   }
-
-  return `
-  # ${}
-  `
 }
