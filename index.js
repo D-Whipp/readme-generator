@@ -79,60 +79,89 @@ inquirer
     //     }
     //   },
     // },
-    {
-      type: "confirm",
-      name: "confirmInstall",
-      message: "Does your project require installation?",
-      default: true,
-    },
+    // Table of Contents START
     {
       type: "input",
-      name: "install",
-      message: "Provide installation direction:",
-      when: ({ confirmInstall }) => {
-        if (confirmInstall) {
+      name: "tocInstall",
+      message:
+        "Enter 'Installation' to add Installation to your Table of Contents: (Required)",
+      validate: (tocInstallInput) => {
+        if (tocInstallInput) {
           return true;
         } else {
+          console.log("Type 'Installation' for your Table of Contents!");
           return false;
         }
       },
     },
-    // {
-    //   type: "confirm",
-    //   name: "confirmUsage",
-    //   message: "Does your project need instructions/examples of use?",
-    //   default: true,
-    // },
-    // {
-    //   type: "input",
-    //   name: "usage",
-    //   message: "Provide instructions/examples here:",
-    //   when: ({ confirmUsage }) => {
-    //     if (confirmUsage) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    // },
-    // {
-    //   type: "confirm",
-    //   name: "confirmCredits",
-    //   message: "Does your project need a list of any additional credits?",
-    //   default: true,
-    // },
-    // {
-    //   type: "input",
-    //   name: "credits",
-    //   message: "Provide additional Credits here:",
-    //   when: ({ confirmCredits }) => {
-    //     if (confirmCredits) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    // },
+    {
+      type: "input",
+      name: "tocUsage",
+      message:
+        "Enter 'Usage' to add Usage to your Table of Contents: (Required)",
+      validate: (tocUsageInput) => {
+        if (tocUsageInput) {
+          return true;
+        } else {
+          console.log("Enter 'Usage' for your Table of Contents!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "tocCredit",
+      message:
+        "Enter 'Credits' to add Credits to your Table of Contents: (Required)",
+      validate: (tocCreditInput) => {
+        if (tocCreditInput) {
+          return true;
+        } else {
+          console.log("Enter Credits!");
+          return false;
+        }
+      },
+    },
+    // Table of Contents END
+    {
+      type: "input",
+      name: "install",
+      message: "Provide installation direction:",
+      validate: (installInput) => {
+        if (installInput) {
+          return true;
+        } else {
+          console.log("Provide installation directions!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "usage",
+      message: "Provide instructions/examples here:",
+      validate: (usageInput) => {
+        if (usageInput) {
+          return true;
+        } else {
+          console.log("Provide instructions/examples here!");
+          return false;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "credits",
+      message: "Provide additional Credits here:",
+      validate: (creditsInput) => {
+        if (creditsInput) {
+          return true;
+        } else {
+          console.log("Provide Cedits here!");
+          return false;
+        }
+      },
+    },
     // {
     //   type: "confirm",
     //   name: "confirmLicense",
@@ -240,10 +269,26 @@ inquirer
       \r\n<img src="${data.image}" alt="Project screenshot" />
       \r\n
       \r\n## Description
+      \r\n
       \r\n${data.description}
       \r\n
+      \r\n## Table of Contents
+      \r\n
+      \r\n[${data.tocInstall}](#installation)
+      \r\n[${data.tocUsage}](#usage)
+      \r\n[${data.tocCredit}](#credits)
+      \r\n
       \r\n## Installation
+      \r\n
       \r\n${data.install}
+      \r\n
+      \r\n## Usage
+      \r\n
+      \r\n${data.usage}
+      \r\n
+      \r\n## Credits
+      \r\n
+      \r\n${data.credits}
     `;
 
     fs.writeFile("ReadMe.md", mdData, (error) => {

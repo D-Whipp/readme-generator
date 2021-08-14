@@ -4,7 +4,7 @@
       
 
       
-## By: David Whipple
+## By: Davidi
       
 
       
@@ -22,11 +22,43 @@
       
 ## Description
       
-This is a basic description
+
+      
+Basic description
+      
+
+      
+## Table of Contents
+      
+
+      
+[Installation](#installation)
+      
+[Usage](#usage)
+      
+[Credits](#credits)
       
 
       
 ## Installation
       
-You must download the source code to use this app
+
+      
+Download source code
+      
+
+      
+## Usage
+      
+
+      
+use node index
+      
+
+      
+## Credits
+      
+
+      
+CJ
     
