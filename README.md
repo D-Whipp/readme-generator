@@ -16,7 +16,7 @@
       
 
       
-<img src="./assets/images/mhfu_kitku.jpg" alt="Project screenshot" />
+<img src="na" alt="Project screenshot" />
       
 
       
@@ -24,7 +24,7 @@
       
 
       
-basic description
+This project uses JavaScript, Inquirer, and FS to build a custom Readme for my projects
       
 
       
@@ -50,7 +50,7 @@ basic description
       
 
       
-clone source code
+Clone source code into your favorite Editor
       
 
       
@@ -58,7 +58,7 @@ clone source code
       
 
       
-from the root type node index into your command line and answer the prompts
+From the Root Directory open the Command Line and type node index and answer the questions
       
 
       
@@ -84,7 +84,7 @@ MIT
       
 ## Features
       
-Builds a custom Readme for your project
+Builds custom Readme for Projects
       
 
       
