@@ -259,24 +259,19 @@ inquirer
         }
       },
     },
-    // {
-    //   type: "confirm",
-    //   name: "confirmTest",
-    //   message: "Do you want to include tests?",
-    //   default: false,
-    // },
-    // {
-    //   type: "input",
-    //   name: "test",
-    //   message: "Include your application tests here:",
-    //   when: ({ confirmTest }) => {
-    //     if (confirmTest) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    // },
+    {
+      type: "input",
+      name: "test",
+      message: "Include your application tests here:",
+      validate: (testInput) => {
+        if (testInput) {
+          return true;
+        } else {
+          console.log("Include your application tests here or type N/A!");
+          return false;
+        }
+      },
+    },
   ])
   .then(function (data) {
     console.log(data);
@@ -328,6 +323,9 @@ inquirer
       \r\n
       \r\n## Contribute
       \r\n${data.contribute}
+      \r\n
+      \r\n## Tests
+      \r\n${data.test}
       \r\n
       \r\n©${new Date().getFullYear()}. All Rights Reserved.
     `;

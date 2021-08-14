@@ -24,7 +24,7 @@
       
 
       
-Desc
+basic description
       
 
       
@@ -50,7 +50,7 @@ Desc
       
 
       
-Clone source code
+clone source code
       
 
       
@@ -58,7 +58,7 @@ Clone source code
       
 
       
-use node index and answer the prompts
+from the root type node index into your command line and answer the prompts
       
 
       
@@ -84,11 +84,17 @@ MIT
       
 ## Features
       
-Builds a custom Readme.md for your project
+Builds a custom Readme for your project
       
 
       
 ## Contribute
+      
+N/A
+      
+
+      
+## Tests
       
 N/A
       
