@@ -24,7 +24,7 @@
       
 
       
-Basic Description
+Basic description
       
 
       
@@ -38,13 +38,15 @@ Basic Description
       
 [Credits](#credits)
       
+[License](#license)
+      
 
       
 ## Installation
       
 
       
-Download Source Code
+Download source code and open with Editor
       
 
       
@@ -52,7 +54,7 @@ Download Source Code
       
 
       
-use the command line
+Using your Editors command line: type node index and answer the prompts
       
 
       
@@ -60,11 +62,13 @@ use the command line
       
 
       
-CD
+CJ
       
 
       
-
+## License
+      
+MIT
       
 
       

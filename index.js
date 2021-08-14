@@ -122,6 +122,20 @@ inquirer
         }
       },
     },
+    {
+      type: "input",
+      name: "tocLicense",
+      message:
+        "Enter 'License' to add License to your Table of Contents: (Required)",
+      validate: (tocLicenseInput) => {
+        if (tocLicenseInput) {
+          return true;
+        } else {
+          console.log("Enter License!");
+          return false;
+        }
+      },
+    },
     // Table of Contents END
     {
       type: "input",
@@ -162,24 +176,19 @@ inquirer
         }
       },
     },
-    // {
-    //   type: "confirm",
-    //   name: "confirmLicense",
-    //   message: "Do you wish to include a license?",
-    //   default: true,
-    // },
-    // {
-    //   type: "input",
-    //   name: "license",
-    //   message: "Provide license here:",
-    //   when: ({ confirmLicense }) => {
-    //     if (confirmLicense) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    // },
+    {
+      type: "input",
+      name: "license",
+      message: "Provide license here:",
+      validate: (licenseInput) => {
+        if (licenseInput) {
+          return true;
+        } else {
+          console.log("Provide License here!");
+          return false;
+        }
+      },
+    },
     // {
     //   type: "confirm",
     //   name: "confirmBadge",
@@ -277,6 +286,7 @@ inquirer
       \r\n[${data.tocInstall}](#installation)
       \r\n[${data.tocUsage}](#usage)
       \r\n[${data.tocCredit}](#credits)
+      \r\n[${data.tocLicense}](#license)
       \r\n
       \r\n## Installation
       \r\n
@@ -290,7 +300,8 @@ inquirer
       \r\n
       \r\n${data.credits}
       \r\n
-      \r\n
+      \r\n## License
+      \r\n${data.license}
       \r\n
       \r\n
       \r\n©${new Date().getFullYear()}. All Rights Reserved.
